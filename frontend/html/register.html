@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Registrazione</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <header>
+            <h1>TaskFlow</h1>
+            <p>Crea un nuovo account</p>
+        </header>
+
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Inserisci username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="esempio@mail.it">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="********">
+            </div>
+
+            <button type="submit" class="btn-primary">Registrati</button>
+        </form>
+
+        <footer>
+            <p>Hai già un account? <a href="login.html">Accedi qui</a></p>
+        </footer>
+    </div>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>

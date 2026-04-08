@@ -61,6 +61,8 @@ input, textarea, select {
     outline: none;
     transition: border-color 0.5s;
     transition: transform 0.5s ease;
+    overflow-y: scroll;
+    resize: none;
 }
 
 input:focus {
@@ -71,22 +73,44 @@ input:hover {
     transform: scale(1.05);
 }
 
+textarea:hover {
+    transform: scale(1.05);
+}
+
+select:hover {
+    transform: scale(1.05);
+}
+
 /* --- BOTTONI --- */
 button {
     cursor: pointer;
     border: 0.2px solid grey;
     border-radius: 8px;
     padding: 0.6rem 1rem;
-    font-weigth: 600;
+    font-weight: 600;
     transition: filter 0.2;
     margin-bottom: 10px;
     transition: transform 0.4s ease;
 }
 
-.btn-primary, .btn-add, .btn-save{
+.btn-primary, .btn-add{
     background: rgba(133, 122, 122, 0.2);
     color: black;
 }
+
+.btn-save {
+    background-color: rgba(39, 189, 25, 0.83) ; 
+    color: white ;
+    width: 100%; 
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(20, 9, 236, 0.43); 
+}
+
+
 
 .btn-logout {
     background: rgba(255, 255, 255, 0.2);
@@ -103,7 +127,7 @@ button:hover {
 
 /* --- DASHBOARD --- */
 .navbar {
-    heigth:60px;
+    height:60px;
     background: var(--primary);
     color: white;
     display: flex;
@@ -117,15 +141,121 @@ button:hover {
 
 .main-wrapper {
     display: flex;
-    min-heigth: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
 }
 
 .sidebar {
     width: var(--sidebar-width);
     background: white;
-    border-rigth: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     padding:2rem 1.5rem;
 }
+
+.content {
+    flex-grow: 1;
+    padding 2rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+
+/* --- TASK CARDS ----------- */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.task-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+}
+
+.task-card.ALTA { border-left-color: var(--danger);}
+.task-card.MEDIA { border-left-color: var(--warning);}
+.task-card.BASSA { border-left-color: var(--success);}
+
+.task-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.task-card p {
+    color:var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.task-meta {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+/* --- MODALE --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width:500px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor:pointer;
+    color: var(--danger);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+#modal-title {
+    margin-top: 0;        
+    margin-bottom: 1.5rem; 
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
 
 
 

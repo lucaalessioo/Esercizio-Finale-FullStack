@@ -95,9 +95,37 @@ button {
 
 button:hover {
     transform: scale(1.05);
-
 }
 
+.btn-delete { background: var(--danger); color: white; }
+.btn-edit { background: var(--warning); color: white; }
+
+
+/* --- DASHBOARD --- */
+.navbar {
+    heigth:60px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-wrapper {
+    display: flex;
+    min-heigth: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: white;
+    border-rigth: 1px solid var(--border);
+    padding:2rem 1.5rem;
+}
 
 
 

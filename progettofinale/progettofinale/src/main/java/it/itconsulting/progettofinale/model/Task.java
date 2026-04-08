@@ -11,13 +11,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
+@ToString(exclude = "appUser")
 public class Task {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     public enum Stato {
     IN_CORSO,
@@ -25,9 +27,16 @@ public class Task {
     TERMINATO
     }
 
+    public enum Priorita{
+        BASSA,
+        MEDIA,
+        ALTA
+    }
+
     private String titolo;
     private String descrizione;
     private Stato stato; 
+    private Priorita priorita;
 
     @Column(name = "local_date")
     private LocalDate dataTask;
@@ -35,5 +44,5 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "appuser_id")
     @JsonIgnore
-    private int user_id;
+    private AppUser appUser;
 }

@@ -15,7 +15,7 @@ import lombok.ToString;
 public class AppUser {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     private String username;
     private String password;

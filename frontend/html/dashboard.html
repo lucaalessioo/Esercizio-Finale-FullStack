@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <span class="logo">TaskFlow</span>
+        </div>
+        <div class="nav-right">
+            <span id="welcome-user">Benvenuto, Utente</span>
+            <button id="logout-btn" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <h3>Filtri</h3>
+            <div class="filter-group">
+                <label>Stato</label>
+                <select id="filter-status">
+                    <option value="ALL">Tutti</option>
+                    <option value="DA_FARE">Da Fare</option>
+                    <option value="IN_CORSO">In Corso</option>
+                    <option value="COMPLETATO">Completato</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Priorità</label>
+                <select id="filter-priority">
+                    <option value="ALL">Tutte</option>
+                    <option value="BASSA">Bassa</option>
+                    <option value="MEDIA">Media</option>
+                    <option value="ALTA">Alta</option>
+                </select>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="content-header">
+                <h2>I Miei Task</h2>
+                <button id="open-modal-btn" class="btn-add">+ Nuovo Task</button>
+            </div>
+
+            <div id="tasks-container" class="tasks-grid">
+                </div>
+        </main>
+    </div>
+
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Nuovo Task</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id"> <div class="form-group">
+                    <label>Titolo</label>
+                    <input type="text" id="task-title" required placeholder="Cosa devi fare?">
+                </div>
+
+                <div class="form-group">
+                    <label>Descrizione</label>
+                    <textarea id="task-desc" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Data Scadenza</label>
+                        <input type="date" id="task-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Priorità</label>
+                        <select id="task-priority">
+                            <option value="BASSA">Bassa</option>
+                            <option value="MEDIA">Media</option>
+                            <option value="ALTA">Alta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Stato</label>
+                    <select id="task-status">
+                        <option value="DA_FARE">Da Fare</option>
+                        <option value="IN_CORSO">In Corso</option>
+                        <option value="COMPLETATO">Completato</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-save">Salva Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

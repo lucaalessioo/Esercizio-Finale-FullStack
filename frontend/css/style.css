@@ -60,9 +60,48 @@ input, textarea, select {
     border-radius: 8px;
     outline: none;
     transition: border-color 0.5s;
+    transition: transform 0.5s ease;
 }
 
 input:focus {
     border-color: var(--primary);
 }
+
+input:hover {
+    transform: scale(1.05);
+}
+
+/* --- BOTTONI --- */
+button {
+    cursor: pointer;
+    border: 0.2px solid grey;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-weigth: 600;
+    transition: filter 0.2;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease;
+}
+
+.btn-primary, .btn-add, .btn-save{
+    background: rgba(133, 122, 122, 0.2);
+    color: black;
+}
+
+.btn-logout {
+    background: rgba(255, 255, 255, 0.2);
+    color: white
+}
+
+button:hover {
+    transform: scale(1.05);
+
+}
+
+
+
+
+
+
+
 

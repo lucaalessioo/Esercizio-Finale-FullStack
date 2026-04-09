@@ -4,10 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class AppUserDto {
+public class AppUserDtoLogin {
     
-    @NotBlank(message = "L'username non può essere vuoto o con soli spazi")
-    private String username;
 
     @NotBlank(message = "L'email non può essere vuoto o con soli spazi")
     private String email;

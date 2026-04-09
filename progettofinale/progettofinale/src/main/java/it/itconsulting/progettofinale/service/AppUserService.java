@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.itconsulting.progettofinale.dto.AppUserDto;
+import it.itconsulting.progettofinale.dto.AppUserDtoLogin;
 import it.itconsulting.progettofinale.model.AppUser;
 import it.itconsulting.progettofinale.repository.AppUserRepository;
 
@@ -16,11 +17,33 @@ public class AppUserService{
     private AppUserRepository appUserRepository;
 
     public AppUser create(AppUserDto appUserDto){
-        if(appUserDto!=null){
-            appUserRepository.save(converti(appUserDto));
+
+        if(appUserDto==null){
+            throw new IllegalArgumentException("L'utente " + appUserDto + " non è valido");
+            
         }
-        throw new IllegalArgumentException("L'utente " + appUserDto + " non è valido");
+
+        if(appUserRepository.findByEmail(appUserDto.getEmail()) != null) {
+            throw new IllegalArgumentException("Email gia presente non è stato possibile creare l account");
+        } 
+
+        return appUserRepository.save(converti(appUserDto));
     }
+
+
+    public AppUser login(AppUserDtoLogin appUserDto) {
+        AppUser appUser = appUserRepository.findByEmail(appUserDto.getEmail());
+        System.out.println(appUser);
+
+        if(appUserDto.getPassword().equals(appUser.getPassword())) {
+            return appUser;
+        } else {
+            
+            throw new IllegalArgumentException("Credenziali errate");
+        }
+
+    }
+
 
     public List<AppUser> getAll(){
         return appUserRepository.findAll();
@@ -50,6 +73,7 @@ public class AppUserService{
         AppUser a = new AppUser();
         a.setUsername(appUserDto.getUsername());
         a.setEmail(appUserDto.getEmail());
+        a.setPassword(appUserDto.getPassword());
 
         return a;
     }

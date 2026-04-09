@@ -21,6 +21,6 @@ public class AppUser {
     private String password;
     private String email;
 
-    @OneToMany(mappedBy = "user_id")
+    @OneToMany(mappedBy = "appUser")
     private List<Task> tasks;
 }

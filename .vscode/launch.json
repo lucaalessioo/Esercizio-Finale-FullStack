@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProgettofinaleApplication<progettofinale>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "it.itconsulting.progettofinale.ProgettofinaleApplication",
+            "projectName": "progettofinale",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

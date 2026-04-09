@@ -29,7 +29,7 @@ public class TaskService {
         throw new IllegalArgumentException("Il task " + taskDto + " non è  valida");
     }
 
-    public List<Task> getAll(){
+    public List<Task> getAll(String stato, String priorita, long id){
         return taskRepository.findAll();
     }
 

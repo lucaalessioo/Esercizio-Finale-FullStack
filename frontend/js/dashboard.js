@@ -23,6 +23,9 @@ async function loadTasks() {
         const filterStatus = document.getElementById('filter-status').value;
         const filterPriority = document.getElementById('filter-priority').value;
 
+        if (filterStatus !== 'ALL') tasks = tasks.filter(t => t.stato === filterStatus);
+        if (filterPriority !== 'ALL') tasks = tasks.filter(t => t.priorità === filterPriority);
+
         renderTasks(tasks);
     } catch (error) {
         console.error("Errore caricamento task: ", error);

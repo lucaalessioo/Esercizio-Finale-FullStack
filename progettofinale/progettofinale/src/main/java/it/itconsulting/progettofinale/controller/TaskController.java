@@ -64,9 +64,12 @@ public class TaskController {
     //         return taskService.getAll();
     // }
     
-        @GetMapping("tasks")
-        public List<Task> getAll(@RequestParam String stato, @RequestParam String priorita, @RequestParam long id) {
-            return taskService.getAll(stato,priorita,id);
+    @GetMapping("tasks")
+    public List<Task> getAll(
+        @RequestParam(required = false) String stato, 
+        @RequestParam(required = false) String priorita, 
+        @RequestParam(name = "userId") long id) { // Cambiato da 'id' a 'userId' per matchare JS
+        return taskService.getAll(stato, priorita, id);
     }
 
     @GetMapping("tasks/{id}")

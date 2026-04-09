@@ -2,7 +2,9 @@ package it.itconsulting.progettofinale.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,10 +41,11 @@ public class Task {
     private Priorita priorita;
 
     @Column(name = "local_date")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataTask;
 
     @ManyToOne
     @JoinColumn(name = "appuser_id")
-    @JsonIgnore
-    private AppUser appUser;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private AppUser user_id;
 }

@@ -6,7 +6,7 @@ import it.itconsulting.progettofinale.model.Task;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+
 import lombok.Data;
 
 @Data
@@ -24,8 +24,8 @@ public class TaskDto {
     @NotNull(message = "La priorità non può essere vuota o con soli spazi")
     private Task.Priorita priorita;
 
-    @Positive(message = "L'id non può assumere valori negativi")
-    @NotBlank(message = "L'id non può essere vuoto o con soli spazi")
+    
+    @NotNull(message = "L'id non può essere vuoto o con soli spazi")
     private long user_id;
 
     @FutureOrPresent(message = "La data del task  può essere precedente")

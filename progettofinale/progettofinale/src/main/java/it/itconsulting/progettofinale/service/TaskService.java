@@ -24,7 +24,7 @@ public class TaskService {
     public Task crea(TaskDto taskDto){
         if(taskDto!=null){
             Task taskDaCreare = converti(taskDto);
-            taskRepository.save(taskDaCreare);
+            return taskRepository.save(taskDaCreare);
         }
         throw new IllegalArgumentException("Il task " + taskDto + " non è  valida");
     }
@@ -48,9 +48,9 @@ public class TaskService {
             taskDaModificare.setStato(taskDto.getStato());
             taskDaModificare.setDataTask(taskDto.getDataTask());
             taskDaModificare.setPriorita(taskDto.getPriorita());
-            if(taskDto.getUser_id() != taskDaModificare.getAppUser().getId()){
+            if(taskDto.getUser_id() != taskDaModificare.getUser_id().getId()){
                 AppUser user = appUserService.getUtente(taskDto.getUser_id());
-                taskDaModificare.setAppUser(user);
+                taskDaModificare.setUser_id(user);
             }
             
             return taskRepository.save(taskDaModificare);
@@ -72,7 +72,7 @@ public class TaskService {
         t.setStato(taskDto.getStato());
         t.setPriorita(taskDto.getPriorita());
         t.setDataTask(taskDto.getDataTask());
-        t.setAppUser(appUserService.getUtente(taskDto.getUser_id()));
+        t.setUser_id(appUserService.getUtente(taskDto.getUser_id()));
         return t;
     }
 }

@@ -25,6 +25,12 @@ body {
     color: var(--text-main);
 }
 
+body:has(.auth-container) {
+    background: linear-gradient(135deg, #142a8b 0%, #641eaa 100%);
+    background-attachment: fixed;
+    display: block; 
+}
+
 /* --- AUTH PAGES (Login & Register)  [ CARD ]--- */
 .auth-container {
     max-width: 400px;
@@ -32,8 +38,11 @@ body {
     padding: 2rem;
     background: var(--bg-card);
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 55px 90px rgba(0, 0, 0, 0.55);
     text-align: center;
+    border: 1px solid #e2e8f0;
+    overflow: visible
+
 }
 
 .auth-container header h1 {
@@ -107,6 +116,13 @@ button {
     box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3); 
     transition: all 0.3s ease;        
     margin-bottom: 0;
+}
+
+.auth-container .btn-primary {
+    width: auto;             
+    padding: 0.5rem 1.2rem;  
+    font-size: 0.85rem;     
+    margin: 10px auto;            
 }
 
 .btn-add:hover {
